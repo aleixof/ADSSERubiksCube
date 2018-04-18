@@ -219,8 +219,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\CubeStructure.cs" />
-    <Compile Include="Assets\Player.cs" />
+    <Compile Include="Assets\Scene2\ConstructCube.cs" />
+    <Compile Include="Assets\Scripts\CubeLogic.cs" />
+    <Compile Include="Assets\Scripts\CubeStructure.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

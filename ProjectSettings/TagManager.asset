@@ -3,7 +3,34 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Center Piece 1
+  - Center Piece 2
+  - Center Piece 3
+  - Center Piece 4
+  - Center Piece 5
+  - Center Piece 6
+  - Corner Piece 1
+  - Corner Piece 2
+  - Corner Piece 3
+  - Corner Piece 4
+  - Corner Piece 5
+  - Corner Piece 6
+  - Corner Piece 7
+  - Corner Piece 8
+  - Edge Piece 1
+  - Edge Piece 2
+  - Edge Piece 3
+  - Edge Piece 4
+  - Edge Piece 5
+  - Edge Piece 6
+  - Edge Piece 7
+  - Edge Piece 8
+  - Edge Piece 9
+  - Edge Piece 10
+  - Edge Piece 11
+  - Edge Piece 12
+  - Pivot
   layers:
   - Default
   - TransparentFX
