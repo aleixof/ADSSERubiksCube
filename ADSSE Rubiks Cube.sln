@@ -1,7 +1,7 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2017
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADSSE Rubiks Cube", "ADSSE Rubiks Cube.csproj", "{D2D2FC27-778F-A5C8-9EDC-B237C5F4FA76}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADSSE Rubiks Cube", "Assembly-CSharp.csproj", "{F466254B-03D4-8DDB-3836-A64A46F8F1D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,12 +9,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D2D2FC27-778F-A5C8-9EDC-B237C5F4FA76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D2D2FC27-778F-A5C8-9EDC-B237C5F4FA76}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D2D2FC27-778F-A5C8-9EDC-B237C5F4FA76}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D2D2FC27-778F-A5C8-9EDC-B237C5F4FA76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F466254B-03D4-8DDB-3836-A64A46F8F1D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F466254B-03D4-8DDB-3836-A64A46F8F1D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F466254B-03D4-8DDB-3836-A64A46F8F1D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F466254B-03D4-8DDB-3836-A64A46F8F1D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
 	EndGlobalSection
 EndGlobal
