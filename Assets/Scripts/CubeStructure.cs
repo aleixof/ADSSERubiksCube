@@ -5,44 +5,44 @@ using UnityEngine;
 public class CubeStructure : MonoBehaviour {
     //The logic of the cube structure is stored as 3 layers in 3x3 matrices
 
-    //first layer covers the whole green side
-    private string[,] layer1 = new string[3, 3];
-    //Second layer is the middler layer right behind the green side
-    private string[,] layer2 = new string[3, 3];
-    //Third Layer covers the whole orange side
-    private string[,] layer3 = new string[3, 3];
+    //first layer covers the whole top/white side
+    private string[,] topLayer = new string[3, 3];
+    //Second layer is the middle layer 
+    private string[,] middleLayer = new string[3, 3];
+    //Third Layer covers the whole bottom/yellow side
+    private string[,] bottomLayer = new string[3, 3];
 
     public void StructureCube()
     {
-        layer1[0, 0] = "Corner Piece 4";
-        layer1[0, 1] = "Edge Piece 1";
-        layer1[0, 2] = "Corner Piece 1";
-        layer1[1, 0] = "Edge Piece 5";
-        layer1[1, 1] = "Center Piece 1";
-        layer1[1, 2] = "Edge Piece 6";
-        layer1[2, 0] = "Corner Piece 5";
-        layer1[2, 1] = "Edge Piece 9";
-        layer1[2, 2] = "Corner Piece 6";
+        topLayer[0, 0] = "CornerRWB";
+        topLayer[0, 1] = "EdgeRW";
+        topLayer[0, 2] = "CornerRGW";
+        topLayer[1, 0] = "EdgeBW";
+        topLayer[1, 1] = "CenterWhite";
+        topLayer[1, 2] = "EdgeGW";
+        topLayer[2, 0] = "CornerOBW";
+        topLayer[2, 1] = "EdgeOW";
+        topLayer[2, 2] = "CornerGWO";
 
-        layer2[0, 0] = "Edge Piece 4";
-        layer2[0, 1] = "Center Piece 6";
-        layer2[0, 2] = "Edge Piece 2";
-        layer2[1, 0] = "Center Piece 4";
-        layer2[1, 1] = "Pivot";
-        layer2[1, 2] = "Center Piece 2";
-        layer2[2, 0] = "Edge Piece 12";
-        layer2[2, 1] = "Center Piece 5";
-        layer2[2, 2] = "Edge Piece 10";
+        middleLayer[0, 1] = "Center Piece 6";
+        middleLayer[0, 0] = "Edge Piece 4";
+        middleLayer[0, 2] = "Edge Piece 2";
+        middleLayer[1, 0] = "Center Piece 4";
+        middleLayer[1, 1] = "Pivot";
+        middleLayer[1, 2] = "Center Piece 2";
+        middleLayer[2, 0] = "Edge Piece 12";
+        middleLayer[2, 1] = "Center Piece 5";
+        middleLayer[2, 2] = "Edge Piece 10";
 
-        layer3[0, 0] = "Corner Piece 3";
-        layer3[0, 1] = "Edge Piece 3";
-        layer3[0, 2] = "Corner Piece 2";
-        layer3[1, 0] = "Edge Piece 8";
-        layer3[1, 1] = "Center Piece 3";
-        layer3[1, 2] = "Edge Piece 7";
-        layer3[2, 0] = "Corner Piece 8";
-        layer3[2, 1] = "Edge Piece 11";
-        layer3[2, 2] = "Corner Piece 7";
+        bottomLayer[0, 0] = "Corner Piece 3";
+        bottomLayer[0, 1] = "Edge Piece 3";
+        bottomLayer[0, 2] = "Corner Piece 2";
+        bottomLayer[1, 0] = "Edge Piece 8";
+        bottomLayer[1, 1] = "Center Piece 3";
+        bottomLayer[1, 2] = "Edge Piece 7";
+        bottomLayer[2, 0] = "Corner Piece 8";
+        bottomLayer[2, 1] = "Edge Piece 11";
+        bottomLayer[2, 2] = "Corner Piece 7";
     }
 
     //the getter functions fetches the string tags of the different sides
