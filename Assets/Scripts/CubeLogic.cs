@@ -13,7 +13,7 @@ public class CubeLogic : MonoBehaviour {
     //Variable for selecting which side to rotate
     public int selector;
 
-    public bool startRotation;
+    public bool startRotation = false;
 	// Use this for initialization
 	void Start () {
         cubeStructure = new CubeStructure();
@@ -43,10 +43,10 @@ public class CubeLogic : MonoBehaviour {
             }
         }
         cubeStructure.Rotate(selector);
-        /*for (int i = 0; i < 91; i++)
+        for (int i = 0; i < 90; i++)
         {
             centerPieces[selector].Rotate(new Vector3(1, 0, 0), Space.Self);
-        }*/
+        }
         
     }
     private void InitializePieces()
@@ -69,9 +69,35 @@ public class CubeLogic : MonoBehaviour {
         }
     }
 
-    public bool ButtonPress(int number)
+    public void RotateFront()
     {
-        selector = number;
-        return startRotation = true; 
+        selector = 0;
+        startRotation = true;
+    }
+
+    public void RotateRight()
+    {
+        selector = 1;
+        startRotation = true;
+    }
+    public void RotateBack()
+    {
+        selector = 2;
+        startRotation = true;
+    }
+    public void RotateLeft()
+    {
+        selector = 3;
+        startRotation = true;
+    }
+    public void RotateBottom()
+    {
+        selector = 4;
+        startRotation = true;
+    }
+    public void RotateTop()
+    {
+        selector = 5;
+        startRotation = true;
     }
 }

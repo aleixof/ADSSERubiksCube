@@ -31,6 +31,32 @@ TagManager:
   - Edge Piece 11
   - Edge Piece 12
   - Pivot
+  - Top
+  - Bottom
+  - Right
+  - Left
+  - Front
+  - Back
+  - CornerRWB
+  - CornerRGW
+  - EdgeRW
+  - EdgeBW
+  - EdgeGW
+  - CornerOBW
+  - EdgeOW
+  - CornerGWO
+  - EdgeRG
+  - CornerRGY
+  - EdgeRY
+  - CornerRBY
+  - EdgeRB
+  - EdgeGO
+  - CornerGOY
+  - EdgeGY
+  - EdgeOY
+  - CornerOBY
+  - EdgeOB
+  - EdgeBY
   layers:
   - Default
   - TransparentFX
