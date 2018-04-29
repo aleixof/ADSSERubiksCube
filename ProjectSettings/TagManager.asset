@@ -57,6 +57,7 @@ TagManager:
   - CornerOBY
   - EdgeOB
   - EdgeBY
+  - Main
   layers:
   - Default
   - TransparentFX

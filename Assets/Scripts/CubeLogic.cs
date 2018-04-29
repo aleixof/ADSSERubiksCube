@@ -18,8 +18,6 @@ public class CubeLogic : MonoBehaviour {
 	void Start () {
         cubeStructure = new CubeStructure();
         InitializePieces();
-        rotateSide();
-
     }
 	
 	// Update is called once per frame
@@ -33,6 +31,17 @@ public class CubeLogic : MonoBehaviour {
     }
     public void rotateSide()
     {
+        if(side != null)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    GameObject.FindWithTag(side[i, j]).transform.parent = GameObject.FindWithTag("Pivot").transform;
+                }
+            }
+        }
+        
         side = cubeStructure.GetSelectedSide(selector);
         for (int i = 0; i < 3; i++)
         {
@@ -45,7 +54,18 @@ public class CubeLogic : MonoBehaviour {
         cubeStructure.Rotate(selector);
         for (int i = 0; i < 90; i++)
         {
-            centerPieces[selector].Rotate(new Vector3(1, 0, 0), Space.Self);
+            if (selector == 1 || selector == 3)
+            {
+                centerPieces[selector].Rotate(new Vector3(1, 0, 0), Space.Self);
+            }
+            if (selector == 0 || selector == 2)
+            {
+                centerPieces[selector].Rotate(new Vector3(0, 0, 1), Space.Self);
+            }
+            if (selector == 4 || selector == 5)
+            {
+                centerPieces[selector].Rotate(new Vector3(0, 1, 0), Space.Self);
+            }
         }
         
     }
