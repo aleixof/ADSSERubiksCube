@@ -51,8 +51,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\CubeStructure.cs" />
-     <Compile Include="Assets\Player.cs" />
+     <Compile Include="Assets\Scene2\ConstructCube.cs" />
+     <Compile Include="Assets\Scripts\CubeLogic.cs" />
+     <Compile Include="Assets\Scripts\CubeStructure.cs" />
+     <Compile Include="Assets\Scripts\Structure.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>E:/Programs/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

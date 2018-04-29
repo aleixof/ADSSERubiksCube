@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -384,7 +384,7 @@ GameObject:
   - component: {fileID: 38067975}
   m_Layer: 0
   m_Name: CenterOrange
-  m_TagString: Untagged
+  m_TagString: Center Piece 5
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -469,7 +469,7 @@ GameObject:
   - component: {fileID: 49372869}
   m_Layer: 0
   m_Name: CornerOBY
-  m_TagString: Untagged
+  m_TagString: Corner Piece 8
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -642,7 +642,7 @@ GameObject:
   - component: {fileID: 62790075}
   m_Layer: 0
   m_Name: EdgeOB
-  m_TagString: Untagged
+  m_TagString: Edge Piece 12
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -814,7 +814,7 @@ GameObject:
   - component: {fileID: 86240099}
   m_Layer: 0
   m_Name: CornerRBY
-  m_TagString: Untagged
+  m_TagString: Corner Piece 3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1159,7 +1159,7 @@ GameObject:
   - component: {fileID: 172734454}
   m_Layer: 0
   m_Name: EdgeOW
-  m_TagString: Untagged
+  m_TagString: Edge Piece 9
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1586,7 +1586,7 @@ GameObject:
   - component: {fileID: 321641170}
   m_Layer: 0
   m_Name: Front
-  m_TagString: Untagged
+  m_TagString: Front
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1790,7 +1790,7 @@ GameObject:
   - component: {fileID: 391243638}
   m_Layer: 0
   m_Name: CenterYellow
-  m_TagString: Untagged
+  m_TagString: Center Piece 3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1875,7 +1875,7 @@ GameObject:
   - component: {fileID: 431659126}
   m_Layer: 0
   m_Name: CornerOBW
-  m_TagString: Untagged
+  m_TagString: Corner Piece 5
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1962,7 +1962,7 @@ GameObject:
   - component: {fileID: 457396666}
   m_Layer: 0
   m_Name: EdgeBW
-  m_TagString: Untagged
+  m_TagString: Edge Piece 5
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2048,7 +2048,7 @@ GameObject:
   - component: {fileID: 494172655}
   m_Layer: 0
   m_Name: CornerGWO
-  m_TagString: Untagged
+  m_TagString: Corner Piece 6
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2135,7 +2135,7 @@ GameObject:
   - component: {fileID: 503017176}
   m_Layer: 0
   m_Name: CenterRed
-  m_TagString: Untagged
+  m_TagString: Center Piece 6
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2220,7 +2220,7 @@ GameObject:
   - component: {fileID: 540669284}
   m_Layer: 0
   m_Name: EdgeRG
-  m_TagString: Untagged
+  m_TagString: Edge Piece 2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2306,7 +2306,7 @@ GameObject:
   - component: {fileID: 548125235}
   m_Layer: 0
   m_Name: CenterGreen
-  m_TagString: Untagged
+  m_TagString: Center Piece 2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2537,9 +2537,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 575572653}
+  - component: {fileID: 575572654}
   m_Layer: 0
   m_Name: Rubiks
-  m_TagString: Untagged
+  m_TagString: Main
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2584,6 +2585,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &575572654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 575572652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 017d48cbd5aa140489e7b8b53aa6cfc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selector: 2
+  startRotation: 0
 --- !u!1 &629913861
 GameObject:
   m_ObjectHideFlags: 0
@@ -2683,7 +2697,7 @@ GameObject:
   - component: {fileID: 656910120}
   m_Layer: 0
   m_Name: CenterBlue
-  m_TagString: Untagged
+  m_TagString: Center Piece 4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3539,7 +3553,7 @@ GameObject:
   - component: {fileID: 854855384}
   m_Layer: 0
   m_Name: Bottom
-  m_TagString: Untagged
+  m_TagString: Bottom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3568,7 +3582,7 @@ GameObject:
   - component: {fileID: 863775723}
   m_Layer: 0
   m_Name: Left
-  m_TagString: Untagged
+  m_TagString: Left
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3600,7 +3614,7 @@ GameObject:
   - component: {fileID: 872319522}
   m_Layer: 0
   m_Name: EdgeRY
-  m_TagString: Untagged
+  m_TagString: Edge Piece 3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4030,7 +4044,7 @@ GameObject:
   - component: {fileID: 979067646}
   m_Layer: 0
   m_Name: CornerRGW
-  m_TagString: Untagged
+  m_TagString: Corner Piece 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4203,7 +4217,7 @@ GameObject:
   - component: {fileID: 1013985857}
   m_Layer: 0
   m_Name: EdgeGY
-  m_TagString: Untagged
+  m_TagString: Edge Piece 7
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4286,7 +4300,7 @@ GameObject:
   - component: {fileID: 1024957147}
   m_Layer: 0
   m_Name: Right
-  m_TagString: Untagged
+  m_TagString: Right
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4318,7 +4332,7 @@ GameObject:
   - component: {fileID: 1062569722}
   m_Layer: 0
   m_Name: EdgeBY
-  m_TagString: Untagged
+  m_TagString: Edge Piece 8
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4662,7 +4676,7 @@ GameObject:
   - component: {fileID: 1176571470}
   m_Layer: 0
   m_Name: CornerRWB
-  m_TagString: Untagged
+  m_TagString: Corner Piece 4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5093,7 +5107,7 @@ GameObject:
   - component: {fileID: 1330352296}
   m_Layer: 0
   m_Name: EdgeGO
-  m_TagString: Untagged
+  m_TagString: Edge Piece 10
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5523,7 +5537,7 @@ GameObject:
   - component: {fileID: 1434215150}
   m_Layer: 0
   m_Name: EdgeGW
-  m_TagString: Untagged
+  m_TagString: Edge Piece 6
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6378,7 +6392,7 @@ GameObject:
   - component: {fileID: 1800654373}
   m_Layer: 0
   m_Name: CornerGOY
-  m_TagString: Untagged
+  m_TagString: Corner Piece 7
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6634,7 +6648,7 @@ GameObject:
   - component: {fileID: 1881619294}
   m_Layer: 0
   m_Name: Top
-  m_TagString: Untagged
+  m_TagString: Top
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6666,7 +6680,7 @@ GameObject:
   - component: {fileID: 1908700478}
   m_Layer: 0
   m_Name: EdgeOY
-  m_TagString: Untagged
+  m_TagString: Edge Piece 11
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6838,7 +6852,7 @@ GameObject:
   - component: {fileID: 1912996583}
   m_Layer: 0
   m_Name: Center
-  m_TagString: Untagged
+  m_TagString: Pivot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6919,7 +6933,7 @@ GameObject:
   - component: {fileID: 1950305106}
   m_Layer: 0
   m_Name: Back
-  m_TagString: Untagged
+  m_TagString: Back
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6951,7 +6965,7 @@ GameObject:
   - component: {fileID: 2003389970}
   m_Layer: 0
   m_Name: CenterWhite
-  m_TagString: Untagged
+  m_TagString: Center Piece 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7036,7 +7050,7 @@ GameObject:
   - component: {fileID: 2024055919}
   m_Layer: 0
   m_Name: EdgeRB
-  m_TagString: Untagged
+  m_TagString: Edge Piece 4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7208,7 +7222,7 @@ GameObject:
   - component: {fileID: 2103683446}
   m_Layer: 0
   m_Name: CornerRGY
-  m_TagString: Untagged
+  m_TagString: Corner Piece 2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7295,7 +7309,7 @@ GameObject:
   - component: {fileID: 2108905494}
   m_Layer: 0
   m_Name: EdgeRW
-  m_TagString: Untagged
+  m_TagString: Edge Piece 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

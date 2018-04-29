@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CubeLogic : MonoBehaviour {
     //Variable for storing the structure of the cube
-    CubeStructure cubeStructure;
+    Structure  cubeStructure;
     private string[,] side;
 
     private Transform[] centerPieces;
@@ -16,7 +16,7 @@ public class CubeLogic : MonoBehaviour {
     public bool startRotation = false;
 	// Use this for initialization
 	void Start () {
-        cubeStructure = new CubeStructure();
+        cubeStructure = new Structure();
         InitializePieces();
         rotateSide();
 
@@ -33,21 +33,38 @@ public class CubeLogic : MonoBehaviour {
     }
     public void rotateSide()
     {
+        Debug.Log("Rotating " + selector);
         side = cubeStructure.GetSelectedSide(selector);
         for (int i = 0; i < 3; i++)
         {
             for (int j = 0; j < 3; j++)
             {
-                GameObject.FindWithTag(side[i, j]).transform.parent = centerPieces[selector];
                 Debug.Log(side[i, j]);
+                GameObject.FindWithTag(side[i, j]).transform.parent = centerPieces[selector];
+                
             }
         }
         cubeStructure.Rotate(selector);
         for (int i = 0; i < 90; i++)
         {
-            centerPieces[selector].Rotate(new Vector3(1, 0, 0), Space.Self);
+           centerPieces[selector].Rotate(new Vector3(0, 1, 0), Space.Self);
         }
-        
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                if (side[i, j].Contains("Center"))
+                {
+                    GameObject.FindWithTag(side[i, j]).transform.parent = centerPieces[selector];
+                }
+                else
+                {
+                    GameObject.FindWithTag(side[i, j]).transform.parent = GameObject.FindGameObjectWithTag("Main").transform;
+                }
+            }
+        }
+        InitializePieces();
+        Debug.Log("Done!");
     }
     private void InitializePieces()
     {
@@ -67,37 +84,5 @@ public class CubeLogic : MonoBehaviour {
         {
             edgePieces[i] = GameObject.FindGameObjectWithTag("Edge Piece " + (i + 1)).transform;
         }
-    }
-
-    public void RotateFront()
-    {
-        selector = 0;
-        startRotation = true;
-    }
-
-    public void RotateRight()
-    {
-        selector = 1;
-        startRotation = true;
-    }
-    public void RotateBack()
-    {
-        selector = 2;
-        startRotation = true;
-    }
-    public void RotateLeft()
-    {
-        selector = 3;
-        startRotation = true;
-    }
-    public void RotateBottom()
-    {
-        selector = 4;
-        startRotation = true;
-    }
-    public void RotateTop()
-    {
-        selector = 5;
-        startRotation = true;
     }
 }

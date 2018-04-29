@@ -10,110 +10,73 @@ public class Structure : MonoBehaviour {
     private string[,] middleTBLayer = new string[3, 3];
     //Third Layer covers the whole bottom side
     private string[,] bottomLayer = new string[3, 3];
-    //fourth layer covers right side of cube
-    private string[,] rightLayer = new string[3, 3];
-    //fifth layer covers vertical middle layer
-    private string[,] middleRLLayer = new string[3, 3];
-    //sixth layer covers the left side of the cube
-    private string[,] leftLayer = new string[3, 3];
-    //seventh layer covers the front side of the cube
-    private string[,] frontLayer = new string[3, 3];
-    //eight layer covers the middle between front and back side of the cube
-    private string[,] middleFBLayer = new string[3, 3];
-    //ninth layer covers the back side of the cube
-    private string[,] backLayer = new string[3, 3];
+
+    private string[, ,] rubiks3d = new string[3, 3, 3];
+
+    public Structure()
+    {
+        StructureCube();
+    }
     // Use this for initialization
     public void StructureCube()
     {
-        topLayer[0, 0] = "CornerRWB";
-        topLayer[0, 1] = "EdgeRW";
-        topLayer[0, 2] = "CornerRGW";
-        topLayer[1, 0] = "EdgeBW";
-        topLayer[1, 1] = "CenterWhite";
-        topLayer[1, 2] = "EdgeGW";
-        topLayer[2, 0] = "CornerOBW";
-        topLayer[2, 1] = "EdgeOW";
-        topLayer[2, 2] = "CornerGWO";
+        topLayer[0, 0] = "Corner Piece 4";
+        topLayer[0, 1] = "Edge Piece 1";
+        topLayer[0, 2] = "Corner Piece 1";
+        topLayer[1, 0] = "Edge Piece 5";
+        topLayer[1, 1] = "Center Piece 1";
+        topLayer[1, 2] = "Edge Piece 6";
+        topLayer[2, 0] = "Corner Piece 5";
+        topLayer[2, 1] = "Edge Piece 9";
+        topLayer[2, 2] = "Corner Piece 6";
 
-        middleTBLayer[0, 0] = "EdgeRB";
-        middleTBLayer[0, 1] = "CenterRed";
-        middleTBLayer[0, 2] = "EdgeRG";
-        middleTBLayer[1, 0] = "CenterBlue";
-        middleTBLayer[1, 1] = "Center";
-        middleTBLayer[1, 2] = "CenterGreen";
-        middleTBLayer[2, 0] = "EdgeOB";
-        middleTBLayer[2, 1] = "CenterOrange";
-        middleTBLayer[2, 2] = "EdgeGO";
+        middleTBLayer[0, 0] = "Edge Piece 4";   
+        middleTBLayer[0, 1] = "Center Piece 6";
+        middleTBLayer[0, 2] = "Edge Piece 2";
+        middleTBLayer[1, 0] = "Center Piece 4";
+        middleTBLayer[1, 1] = "Pivot";
+        middleTBLayer[1, 2] = "Center Piece 2";
+        middleTBLayer[2, 0] = "Edge Piece 12";
+        middleTBLayer[2, 1] = "Center Piece 5";
+        middleTBLayer[2, 2] = "Edge Piece 10";
 
-        bottomLayer[0, 0] = "CornerRBY";
-        bottomLayer[0, 1] = "EdgeRY";
-        bottomLayer[0, 2] = "CornerRGY";
-        bottomLayer[1, 0] = "EdgeBY";
-        bottomLayer[1, 1] = "CenterYellow";
-        bottomLayer[1, 2] = "EdgeGY";
-        bottomLayer[2, 0] = "CornerOBY";
-        bottomLayer[2, 1] = "EdgeOY";
-        bottomLayer[2, 2] = "CornerGOY";
+        bottomLayer[0, 0] = "Corner Piece 3";
+        bottomLayer[0, 1] = "Edge Piece 3";
+        bottomLayer[0, 2] = "Corner Piece 2";
+        bottomLayer[1, 0] = "Edge Piece 8";
+        bottomLayer[1, 1] = "Center Piece 3";
+        bottomLayer[1, 2] = "Edge Piece 7";
+        bottomLayer[2, 0] = "Corner Piece 8";
+        bottomLayer[2, 1] = "Edge Piece 11";
+        bottomLayer[2, 2] = "Corner Piece 7";
 
-        rightLayer[0, 0] = "CornerRGW";
-        rightLayer[0, 1] = "EdgeRW";
-        rightLayer[0, 2] = "CornerRWB";
-        rightLayer[1, 0] = "EdgeRG";
-        rightLayer[1, 1] = "CenterRed";
-        rightLayer[1, 2] = "EdgeRB";
-        rightLayer[2, 0] = "CornerRGY";
-        rightLayer[2, 1] = "EdgeRY";
-        rightLayer[2, 2] = "CornerRBY";
+        
+    }
 
-        middleRLLayer[0, 0] = "EdgeGW";
-        middleRLLayer[0, 1] = "CenterWhite";
-        middleRLLayer[0, 2] = "EdgeBW";
-        middleRLLayer[1, 0] = "CenterGreen";
-        middleRLLayer[1, 1] = "Center";
-        middleRLLayer[1, 2] = "CenterBlue";
-        middleRLLayer[2, 0] = "EdgeGY";
-        middleRLLayer[2, 1] = "CenterYellow";
-        middleRLLayer[2, 2] = "EdgeBY";
+    public void Printsides()
+    {
+        for (int row = 0; row < topLayer.GetLength(0); row++)
+        {
+            for (int column = 0; column < topLayer.GetLength(1); column++)
+            {
+                Debug.Log("Top: " + row + ", " + column + "  " + topLayer[row,column]);
+            }
+        }
+        for (int row = 0; row < middleTBLayer.GetLength(0); row++)
+        {
+            for (int column = 0; column < middleTBLayer.GetLength(1); column++)
+            {
+                Debug.Log("Mid: " + row + ", " + column + "  " + middleTBLayer[row, column]);
+            }
+        }
 
-        leftLayer[0, 0] = "CornerGWO";
-        leftLayer[0, 1] = "EdgeOW";
-        leftLayer[0, 2] = "CornerOBW";
-        leftLayer[1, 0] = "EdgeGO";
-        leftLayer[1, 1] = "CenterOrange";
-        leftLayer[1, 2] = "EdgeOB";
-        leftLayer[2, 0] = "CornerGOY";
-        leftLayer[2, 1] = "EdgeOY";
-        leftLayer[2, 2] = "CornerOBY";
-
-        frontLayer[0, 0] = "CornerRWB";
-        frontLayer[0, 1] = "EdgeBW";
-        frontLayer[0, 2] = "CornerOBW";
-        frontLayer[1, 0] = "EdgeRB";
-        frontLayer[1, 1] = "CenterBlue";
-        frontLayer[1, 2] = "EdgeOB";
-        frontLayer[2, 0] = "CornerRBY";
-        frontLayer[2, 1] = "EdgeBY";
-        frontLayer[2, 2] = "CornerOBY";
-
-        middleFBLayer[0, 0] = "EdgeRW";
-        middleFBLayer[0, 1] = "CenterWhite";
-        middleFBLayer[0, 2] = "EdgeOW";
-        middleFBLayer[1, 0] = "CenterRed";
-        middleFBLayer[1, 1] = "Center";
-        middleFBLayer[1, 2] = "CenterOrange";
-        middleFBLayer[2, 0] = "EdgeRY";
-        middleFBLayer[2, 1] = "CenterYellow";
-        middleFBLayer[2, 2] = "EdgeOY";
-
-        backLayer[0, 0] = "CornerRGW";
-        backLayer[0, 1] = "EdgeGW";
-        backLayer[0, 2] = "CornerGWO";
-        backLayer[1, 0] = "EdgeRG";
-        backLayer[1, 1] = "CenterGreen";
-        backLayer[1, 2] = "EdgeGO";
-        backLayer[2, 0] = "CornerRGY";
-        backLayer[2, 1] = "EdgeGY";
-        backLayer[2, 2] = "CornerGOY";
+        for (int row = 0; row < bottomLayer.GetLength(0); row++)
+        {
+            for (int column = 0; column < bottomLayer.GetLength(1); column++)
+            {
+                Debug.Log("Botton: " + row + ", " + column + "  " + bottomLayer[row, column]);
+            }
+        }
     }
 
     //the getter functions fetches the string tags of the different sides
@@ -126,15 +89,15 @@ public class Structure : MonoBehaviour {
         }
         else if (side == 1)
         {
-            return GetBottomSide();
+            return GetRightSide();
         }
         else if (side == 2)
         {
-            return GetLeftSide();
+            return GetBottomSide();
         }
         else if (side == 3)
         {
-            return GetRightSide();
+            return GetLeftSide();
         }
         else if (side == 4)
         {
@@ -148,14 +111,6 @@ public class Structure : MonoBehaviour {
         {
             return GetMiddleTBSide();
         }
-        else if (side == 7)
-        {
-            return GetMiddleRLSide();
-        }
-        else if (side == 8)
-        {
-            return GetMiddleFBSide();
-        }
         return null;
     }
     public string[,] GetTopSide()
@@ -166,49 +121,179 @@ public class Structure : MonoBehaviour {
     {
         return bottomLayer;
     }
-    public string[,] GetLeftSide()
-    {
-        return leftLayer;
-    }
-    public string[,] GetRightSide()
-    {
-        return rightLayer;
-    }
-    public string[,] GetFrontSide()
-    {
-        return frontLayer;
-    }
-    public string[,] GetBackSide()
-    {
-        return backLayer;
-    }
     public string[,] GetMiddleTBSide()
     {
         return middleTBLayer;
     }
-    public string[,] GetMiddleRLSide()
+    public string[,] GetRightSide()
     {
-        return middleRLLayer;
+        string[,] array = new string[3, 3];
+        array[0, 0] = topLayer[0, 2]; array[0, 1] = middleTBLayer[0, 2]; array[0, 2] = bottomLayer[0, 2];
+        array[1, 0] = topLayer[1, 2]; array[1, 1] = middleTBLayer[1, 2]; array[1, 2] = bottomLayer[1, 2];
+        array[2, 0] = topLayer[2, 2]; array[2, 1] = middleTBLayer[2, 2]; array[2, 2] = bottomLayer[2, 2];
+        return array;
     }
-    public string[,] GetMiddleFBSide()
+    public string[,] GetLeftSide()
     {
-        return middleFBLayer;
+        string[,] array = new string[3, 3];
+        array[0, 0] = bottomLayer[0, 0]; array[0, 1] = middleTBLayer[0, 0]; array[0, 2] = topLayer[0, 0];
+        array[1, 0] = bottomLayer[1, 0]; array[1, 1] = middleTBLayer[1, 0]; array[1, 2] = topLayer[1, 0];
+        array[2, 0] = bottomLayer[2, 0]; array[2, 1] = middleTBLayer[2, 0]; array[2, 2] = topLayer[2, 0];
+        return array;
     }
-    private void InitializeArray()
+    public string[,] GetBackSide()
     {
-
+        string[,] array = new string[3, 3];
+        array[0, 0] = bottomLayer[0, 0]; array[0, 1] = bottomLayer[0, 1]; array[0, 2] = bottomLayer[0, 2];
+        array[1, 0] = middleTBLayer[0, 0]; array[1, 1] = middleTBLayer[0, 1]; array[1, 2] = middleTBLayer[0, 2];
+        array[2, 0] = topLayer[0, 0]; array[2, 1] = topLayer[0, 1]; array[2, 2] = topLayer[0, 2];
+        return array;
+    }
+    public string[,] GetFrontSide()
+    {
+        string[,] array = new string[3, 3];
+        array[0, 0] = topLayer[2, 2]; array[0, 1] = middleTBLayer[2, 2]; array[0, 2] = bottomLayer[2, 2];
+        array[1, 0] = topLayer[2, 1]; array[1, 1] = middleTBLayer[2, 1]; array[1, 2] = bottomLayer[2, 1];
+        array[2, 0] = topLayer[2, 0]; array[2, 1] = middleTBLayer[2, 0]; array[2, 2] = bottomLayer[2, 0];
+        return array;
     }
 
     //This function maps the tag strings to a new position based on a
     //clockwise 90 degrees rotation, based on the input given
-    public void Rotate90CW(int side)
+    public void Rotate(int side)
     {
         if (side == 0) //top side of the cube
         {
-            GameObject top = GameObject.FindGameObjectWithTag("Top");
-            GameObject.FindGameObjectWithTag(topLayer[0, 0]).transform.SetParent(top.transform);
+            //Rotate the corners
+            string temp = topLayer[0, 0];
+            topLayer[0, 0] = topLayer[0, 2];
+            topLayer[0, 2] = topLayer[2, 2];
+            topLayer[2, 2] = topLayer[2, 0];
+            topLayer[2, 0] = temp;
+
+            //Rotate the edges
+            temp = topLayer[0, 1];
+            topLayer[0, 1] = topLayer[1, 2];
+            topLayer[1, 2] = topLayer[2, 1];
+            topLayer[2, 1] = topLayer[1, 0];
+            topLayer[1, 0] = temp;
         }
 
+        if (side == 1) //Right side of the cube
+        {
+            //Rotate the corners
+            string temp = topLayer[0, 2];
+            topLayer[0, 2] = bottomLayer[0, 2];
+            bottomLayer[0, 2] = bottomLayer[2, 2];
+            bottomLayer[2, 2] = topLayer[2, 2];
+            topLayer[2, 2] = temp;
+
+            //Rotate the edges
+            temp = middleTBLayer[0, 2];
+            middleTBLayer[0, 2] = bottomLayer[1, 2];
+            bottomLayer[1, 2] = middleTBLayer[2, 2];
+            middleTBLayer[2, 2] = topLayer[1, 2];
+            topLayer[1, 2] = temp;
+        }
+        if (side == 2) //Bottom side of the cube
+        {
+            //Rotate the corners
+            string temp = bottomLayer[0, 2];
+            bottomLayer[0, 2] = bottomLayer[0, 0]; //upper-left corner -> upper-right corner
+            bottomLayer[0, 0] = bottomLayer[2, 0]; //upper-right corner ->  lower-right corner
+            bottomLayer[2, 0] = bottomLayer[2, 2]; //lower-right corner -> lower-left corner
+            bottomLayer[2, 2] = temp;
+
+            //Rotate the edges
+            temp = bottomLayer[0, 1];
+            bottomLayer[0, 1] = bottomLayer[1, 0]; // Upper edge piece -> right edge piece
+            bottomLayer[1, 0] = bottomLayer[2, 1]; //right edge piece -> lower edge piece
+            bottomLayer[2, 1] = bottomLayer[1, 2]; //lower edge piece -> left edge piece
+            bottomLayer[1, 2] = temp;
+        }
+        if (side == 3) //Left side of the cube
+        {
+            //Rotate the corners
+            string temp = bottomLayer[0, 0];
+            bottomLayer[0, 0] = topLayer[0, 0];
+            topLayer[0, 0] = topLayer[2, 0];
+            topLayer[2, 0] = bottomLayer[2, 0];
+            bottomLayer[2, 0] = temp;
+
+            //Rotate the edges
+            temp = middleTBLayer[0, 0];
+            middleTBLayer[0, 0] = topLayer[1, 0];
+            topLayer[1, 0] = middleTBLayer[2, 0];
+            middleTBLayer[2, 0] = bottomLayer[1, 0];
+            bottomLayer[1, 0] = temp;
+        }
+        if (side == 4) //Front side of the cube
+        {
+            //Rotate the corners
+            string temp = bottomLayer[2, 0];    
+            bottomLayer[2, 0] = topLayer[2, 0];
+            topLayer[2, 0] = topLayer[2, 2];
+            topLayer[2, 2] = bottomLayer[2, 2];
+            bottomLayer[2, 2] = temp;
+
+            //Rotate the edges
+            temp = middleTBLayer[2, 0];
+            middleTBLayer[2, 0] = topLayer[2, 1];
+            topLayer[2, 1] = middleTBLayer[2, 2];
+            middleTBLayer[2, 2] = bottomLayer[2, 1];
+            bottomLayer[2, 1] = temp;
+        }
+        if (side == 5) //Back side of the cube
+        {
+            //Rotate the corners
+            string temp = bottomLayer[0, 2];
+            bottomLayer[0, 2] = topLayer[0, 2];
+            topLayer[0, 2] = topLayer[0, 0];
+            topLayer[0, 0] = bottomLayer[0, 0];
+            bottomLayer[0, 0] = temp;
+
+            //Rotate the edges
+            temp = middleTBLayer[0, 2];
+            middleTBLayer[0, 2] = topLayer[0, 1];
+            topLayer[0, 1] = middleTBLayer[0, 0];
+            middleTBLayer[0, 0] = bottomLayer[0, 1];
+            bottomLayer[0, 1] = temp;
+        }
+        Printsides();
+    }
+
+    public string[,] RotateMatrixClockwise(string[,] oldMatrix)
+    {
+        string[,] newMatrix = new string[oldMatrix.GetLength(1), oldMatrix.GetLength(0)];
+        int newRow, newColumn = oldMatrix.GetLength(1);
+        for (int oldRow = 0; oldRow < oldMatrix.GetLength(0); oldRow++)
+        {
+            newRow = oldMatrix.GetLength(0);
+            for (int oldColumn = oldMatrix.GetLength(1) - 1; oldColumn >= 0; oldColumn--)
+            {
+                newMatrix[newRow, newColumn] = oldMatrix[oldRow, oldColumn];
+                newRow--;
+            }
+            newColumn--;
+        }
+        return newMatrix;
+    }
+
+    public string[,] RotateMatrixCounterClockwise(string[,] oldMatrix)
+    {
+        string[,] newMatrix = new string[oldMatrix.GetLength(1), oldMatrix.GetLength(0)];
+        int newColumn, newRow = 0;
+        for (int oldColumn = oldMatrix.GetLength(1) - 1; oldColumn >= 0; oldColumn--)
+        {
+            newColumn = 0;
+            for (int oldRow = 0; oldRow < oldMatrix.GetLength(0); oldRow++)
+            {
+                newMatrix[newRow, newColumn] = oldMatrix[oldRow, oldColumn];
+                newColumn++;
+            }
+            newRow++;
+        }
+        return newMatrix;
     }
 
     // Update is called once per frame
