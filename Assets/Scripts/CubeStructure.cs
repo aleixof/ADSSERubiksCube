@@ -49,6 +49,7 @@ public class CubeStructure : MonoBehaviour {
     //from a basic "solved" state.
     public string[,] GetSelectedSide(int side)
     {
+        Debug.Log("SIDE:  " + side);
         if (side == 0)
         {
             return GetGreenSide();
@@ -72,6 +73,19 @@ public class CubeStructure : MonoBehaviour {
         else if (side == 5)
         {
             return GetRedSide();
+        }
+        else if (side == 6)
+        {
+            return GetMiddleTB();
+        }
+        else if (side == 7)
+        {
+            return GetMiddleLR();
+        }
+        else if (side == 8)
+        {
+            Debug.Log("SELECTEDDDDDD");
+            return GetMiddleFB();
         }
         return null;
     }
@@ -122,6 +136,30 @@ public class CubeStructure : MonoBehaviour {
         array[0, 0] = layer3[0, 0]; array[0, 1] = layer3[0, 1]; array[0, 2] = layer3[0, 2];
         array[1, 0] = layer2[0, 0]; array[1, 1] = layer2[0, 1]; array[1, 2] = layer2[0, 2];
         array[2, 0] = layer1[0, 0]; array[2, 1] = layer1[0, 1]; array[2, 2] = layer1[0, 2];
+        return array;
+    }
+    public string[,] GetMiddleTB()
+    {
+        string[,] array = new string[3, 3];
+        array[0, 0] = layer3[1, 0]; array[0, 1] = layer3[1, 1]; array[0, 2] = layer3[1, 2];
+        array[1, 0] = layer2[1, 0]; array[1, 1] = layer2[1, 1]; array[1, 2] = layer2[1, 2];
+        array[2, 0] = layer1[1, 0]; array[2, 1] = layer1[1, 1]; array[2, 2] = layer1[1, 2];
+        return array;
+    }
+    public string[,] GetMiddleLR()
+    {
+        string[,] array = new string[3, 3];
+        array[0, 0] = layer1[0, 1]; array[0, 1] = layer2[0, 1]; array[0, 2] = layer3[0, 1];
+        array[1, 0] = layer1[1, 1]; array[1, 1] = layer2[1, 1]; array[1, 2] = layer3[1, 1];
+        array[2, 0] = layer1[2, 1]; array[2, 1] = layer2[2, 1]; array[2, 2] = layer3[2, 1];
+        return array;
+    }
+    public string[,] GetMiddleFB()
+    {
+        string[,] array = new string[3, 3];
+        array[0, 0] = layer2[0, 2]; array[0, 1] = layer2[0, 1]; array[0, 2] = layer2[0, 0];
+        array[1, 0] = layer2[1, 2]; array[1, 1] = layer2[1, 1]; array[1, 2] = layer2[1, 0];
+        array[2, 0] = layer2[2, 2]; array[2, 1] = layer2[2, 1]; array[2, 2] = layer2[2, 0];
         return array;
     }
     private void InitializeArray()
@@ -182,6 +220,7 @@ public class CubeStructure : MonoBehaviour {
             layer3[1, 0] = layer3[2, 1]; //right edge piece -> lower edge piece
             layer3[2, 1] = layer3[1, 2]; //lower edge piece -> left edge piece
             layer3[1, 2] = temp;
+
         }
         if (side == 3) //Blue side of the cube
         {
@@ -230,6 +269,54 @@ public class CubeStructure : MonoBehaviour {
             layer1[0, 1] = layer2[0, 0];
             layer2[0, 0] = layer3[0, 1];
             layer3[0, 1] = temp;
+        }
+        if(side == 6)//Middle between top bottom
+        {
+            //rotate corners
+            string temp = layer1[1, 0];
+            layer1[1, 0] = layer1[1, 2];
+            layer1[1, 2] = layer3[1, 2];
+            layer3[1, 2] = layer3[1, 0];
+            layer3[1, 0] = temp;
+
+            //rotate edges
+            temp = layer1[1, 1];
+            layer1[1, 1] = layer2[1, 2];
+            layer2[1, 2] = layer3[1, 1];
+            layer3[1, 1] = layer2[1, 0];
+            layer2[1, 0] = temp;
+        }
+        if (side  == 7)//Middle between left and right
+        {
+            //rotate corners
+            string temp = layer1[0, 1];
+            layer1[0, 1] = layer1[2, 1];
+            layer1[2, 1] = layer3[2, 1];
+            layer3[2, 1] = layer3[0, 1];
+            layer3[0, 1] = temp;
+
+            //rotate edges
+            temp = layer1[1, 1];
+            layer1[1, 1] = layer2[2, 1];
+            layer2[2, 1] = layer3[1, 1];
+            layer3[1, 1] = layer2[0, 1];
+            layer2[0, 1] = temp;
+        }
+        if (side == 8)//Middle between front and back
+        {
+            //Rotate the corners
+            string temp = layer2[0, 0];
+            layer2[0, 0] = layer2[0, 2];
+            layer2[0, 2] = layer2[2, 2];
+            layer2[2, 2] = layer2[2, 0];
+            layer2[2, 0] = temp;
+
+            //Rotate the edges
+            temp = layer2[0, 1];
+            layer2[0, 1] = layer2[1, 2];
+            layer2[1, 2] = layer2[2, 1];
+            layer2[2, 1] = layer2[1, 0];
+            layer2[1, 0] = temp;
         }
 
     }
