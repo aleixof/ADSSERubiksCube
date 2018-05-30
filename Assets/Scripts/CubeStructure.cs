@@ -169,8 +169,8 @@ public class CubeStructure : MonoBehaviour {
 
 
     //This function maps the tag strings to a new position based on a
-    //clockwise 90 degrees rotation, based on the input given
-    public void Rotate(int side)
+    //counter clockwise 90 degrees rotation, based on the input given
+    public void RotateCCW(int side)
     {
         if (side == 0) //green side of the cube
         {
@@ -319,6 +319,154 @@ public class CubeStructure : MonoBehaviour {
             layer2[1, 0] = temp;
         }
 
+    }
+
+    public void RotateCW(int side)
+    {
+        if (side == 0)
+        {
+            //Rotate the corners
+            string temp = layer1[0, 0];
+            layer1[0, 0] = layer1[2, 0];
+            layer1[2, 0] = layer1[2, 2];
+            layer1[2, 2] = layer1[0, 2];
+            layer1[0, 2] = temp;
+
+            //Rotate the edges
+            temp = layer1[0, 1];
+            layer1[0, 1] = layer1[1, 0];
+            layer1[1, 0] = layer1[2, 1];
+            layer1[2, 1] = layer1[1, 2];
+            layer1[1, 2] = temp;
+        }
+        if (side  == 1)
+        {
+            //Rotate the corners
+            string temp = layer1[0, 2];
+            layer1[0, 2] = layer1[2, 2];
+            layer1[2, 2] = layer3[2, 2];
+            layer3[2, 2] = layer3[0, 2];
+            layer3[0, 2] = temp;
+
+            //Rotate the edges
+            temp = layer2[0, 2];
+            layer2[0, 2] = layer1[1, 2];
+            layer1[1, 2] = layer2[2, 2];
+            layer2[2, 2] = layer3[1, 2];
+            layer3[1, 2] = temp;
+        }
+        if (side == 2)
+        {
+            //Rotate the corners
+            string temp = layer3[0, 2];
+            layer3[0, 2] = layer3[2, 2]; //upper-left corner -> upper-right corner
+            layer3[2, 2] = layer3[2, 0]; //upper-right corner ->  lower-right corner
+            layer3[2, 0] = layer3[0, 0]; //lower-right corner -> lower-left corner
+            layer3[0, 0] = temp;
+
+            //Rotate the edges
+            temp = layer3[0, 1];
+            layer3[0, 1] = layer3[1, 2]; // Upper edge piece -> right edge piece
+            layer3[1, 1] = layer3[2, 1]; //right edge piece -> lower edge piece
+            layer3[2, 1] = layer3[1, 0]; //lower edge piece -> left edge piece
+            layer3[1, 0] = temp;
+        }
+        if (side == 3)
+        {
+            //Rotate the corners
+            string temp = layer3[0, 0];
+            layer3[0, 0] = layer3[2, 0];
+            layer3[2, 0] = layer1[2, 0];
+            layer1[2, 0] = layer1[0, 0];
+            layer1[0, 0] = temp;
+
+            //Rotate the edges
+            temp = layer2[0, 0];
+            layer2[0, 0] = layer3[1, 0];
+            layer3[1, 0] = layer2[2, 0];
+            layer2[2, 0] = layer1[1, 0];
+            layer1[1, 0] = temp;
+        }
+        if (side == 4)
+        {
+            //Rotate the corners
+            string temp = layer3[2, 0];
+            layer3[2, 0] = layer3[2, 2];
+            layer3[2, 2] = layer1[2, 2];
+            layer1[2, 2] = layer1[2, 0];
+            layer1[2, 0] = temp;
+
+            //Rotate the edges
+            temp = layer2[2, 0];
+            layer2[2, 0] = layer3[2, 1];
+            layer3[2, 1] = layer2[2, 2];
+            layer2[2, 2] = layer1[2, 1];
+            layer1[2, 1] = temp;
+        }
+        if (side == 5)
+        {
+            //Rotate the corners
+            string temp = layer3[0, 2];
+            layer3[0, 2] = layer3[0, 0];
+            layer3[0, 0] = layer1[0, 0];
+            layer1[0, 0] = layer1[0, 2];
+            layer1[0, 2] = temp;
+
+            //Rotate the edges
+            temp = layer2[0, 2];
+            layer2[0, 2] = layer3[0, 1];
+            layer3[0, 1] = layer2[0, 0];
+            layer2[0, 0] = layer1[0, 1];
+            layer1[0, 1] = temp;
+        }
+        if (side == 6)
+        {
+            //rotate corners
+            string temp = layer1[1, 0];
+            layer1[1, 0] = layer3[1, 0];
+            layer3[1, 0] = layer3[1, 2];
+            layer3[1, 2] = layer1[1, 2];
+            layer1[1, 2] = temp;
+
+            //rotate edges
+            temp = layer1[1, 1];
+            layer1[1, 1] = layer2[1, 0];
+            layer2[1, 0] = layer3[1, 1];
+            layer3[1, 1] = layer2[1, 2];
+            layer2[1, 2] = temp;
+        }
+        if (side == 7)
+        {
+            //rotate corners
+            string temp = layer1[0, 1];
+            layer1[0, 1] = layer3[0, 1];
+            layer3[0, 1] = layer3[2, 1];
+            layer3[2, 1] = layer1[2, 1];
+            layer1[2, 1] = temp;
+
+            //rotate edges
+            temp = layer1[1, 1];
+            layer1[1, 1] = layer2[0, 1];
+            layer2[0, 1] = layer3[1, 1];
+            layer3[1, 1] = layer2[2, 1];
+            layer2[2, 1] = temp;
+        }
+        if (side == 8)
+        {
+            //Rotate the corners
+            string temp = layer2[0, 0];
+            layer2[0, 0] = layer2[2, 0];
+            layer2[2, 0] = layer2[2, 2];
+            layer2[2, 2] = layer2[0, 2];
+            layer2[0, 2] = temp;
+
+            //Rotate the edges
+            temp = layer2[0, 1];
+            layer2[0, 1] = layer2[1, 0];
+            layer2[1, 0] = layer2[2, 1];
+            layer2[2, 1] = layer2[1, 2];
+            layer2[1, 2] = temp;
+        }
     }
     public CubeStructure()
         {
