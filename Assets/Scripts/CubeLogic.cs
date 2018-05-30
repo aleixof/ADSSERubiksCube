@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CubeLogic : MonoBehaviour {
     //Variable for storing the structure of the cube
     CubeStructure  cubeStructure;
     private string[,] side;
+    private bool CW = true;
 
     private Transform[] centerPieces;
     private Transform[] cornerPieces;
@@ -33,12 +35,11 @@ public class CubeLogic : MonoBehaviour {
 	void Update () {
         if (startRotation == true)
         {
-            rotateSide();
+            rotate();
             startRotation = false;
         }
-        //rotateSide();
     }
-    public void rotateSide()
+    public void rotate()
     {
         side = cubeStructure.GetSelectedSide(selector);
         for (int i = 0; i < 3; i++)
@@ -54,15 +55,139 @@ public class CubeLogic : MonoBehaviour {
                 {
                     Debug.Log(side[i, j]);
                     GameObject.FindWithTag(side[i, j]).transform.parent = centerPieces[selector];
-                }                
+                }
             }
         }
+        if (CW)
+        {
+            rotateSideCW();
+        }
+        else if(!CW)
+        {
+            rotateSideCCW();
+        }
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                GameObject.FindWithTag(side[i, j]).transform.parent = GameObject.FindWithTag("Main").transform;
+            }
+        }
+        for (int i = 0; i < 90; i++)
+        {
+            if (selector == 6)
+            {
+                if (CW)
+                {
+                    middleCubePiece[0].Rotate(new Vector3(0, 1, 0), Space.Self);
+                }
+                else
+                {
+                    middleCubePiece[0].Rotate(new Vector3(0, -1, 0), Space.Self);
+                }
+            }
+            if (selector == 7)
+            {
+                if(CW)
+                {
+                    middleCubePiece[0].Rotate(new Vector3(1, 0, 0), Space.Self);
+                }
+                else
+                {
+                    middleCubePiece[0].Rotate(new Vector3(-1, 0, 0), Space.Self);
+                }
+            }
+            if (selector == 8)
+            {
+                if (CW)
+                {
+                    middleCubePiece[0].Rotate(new Vector3(0, 0, 1), Space.Self);
+                }
+                else
+                {
+                    middleCubePiece[0].Rotate(new Vector3(0, 0, -1), Space.Self);
+                }
+            }
+        }
+    }
+    public void rotateSideCW()
+    {
+        cubeStructure.RotateCW(selector);
+        for (int i = 0; i < 90; i++)
+        {
+            if (selector == 1 || selector == 3)
+            {
+                centerPieces[selector].Rotate(new Vector3(x1 *-1, y1 * -1, z1 * -1), Space.Self);
+            }
+            if (selector == 0 || selector == 2)
+            {
+                centerPieces[selector].Rotate(new Vector3(x2 * -1, y2 * -1, z2 * -1), Space.Self);
+            }
+            if (selector == 4 || selector == 5)
+            {
+                centerPieces[selector].Rotate(new Vector3(x3 * -1, y3 * -1, z3 * -1), Space.Self);
+            }
+            if (selector == 6)
+            {
+                middleCubePiece[0].Rotate(new Vector3(0, -1, 0), Space.Self);
+            }
+            if (selector == 7)
+            {
+                middleCubePiece[0].Rotate(new Vector3(-1, 0, 0), Space.Self);
+            }
+            if (selector == 8)
+            {
+                middleCubePiece[0].Rotate(new Vector3(0, 0, -1), Space.Self);
+            }
+        }
+        if (selector == 6)
+        {
+            Transform temp = centerPieces[0];
+            centerPieces[0] = centerPieces[3];
+            centerPieces[3] = centerPieces[2];
+            centerPieces[2] = centerPieces[1];
+            centerPieces[1] = temp;
+
+            int temp1 = x1; int temp2 = y1; int temp3 = z1;
+            x1 = x2; y1 = y2; z1 = z2;
+            x2 = temp1; y2 = temp2; z2 = temp3;
+
+        }
+        if (selector == 7)
+        {
+            Transform temp = centerPieces[0];
+            centerPieces[0] = centerPieces[5];
+            centerPieces[5] = centerPieces[2];
+            centerPieces[2] = centerPieces[4];
+            centerPieces[4] = temp;
+
+            int temp1 = x2; int temp2 = y2; int temp3 = z2;
+            x2 = x3; y2 = y3; z2 = z3;
+            x3 = temp1; y3 = temp2; z3 = temp3;
+
+        }
+        if (selector == 8)
+        {
+            Transform temp = centerPieces[5];
+            centerPieces[5] = centerPieces[3];
+            centerPieces[3] = centerPieces[4];
+            centerPieces[4] = centerPieces[1];
+            centerPieces[1] = temp;
+
+            int temp1 = x1; int temp2 = y1; int temp3 = z1;
+            x1 = x3; y1 = y3; z1 = z3;
+            x3 = temp1; y3 = temp2; z3 = temp3;
+        }
+    }
+    public void rotateSideCCW()
+    {
+        
         Debug.Log("Center: " + side[1, 1]);
         if (selector < 6)
         {
             Debug.Log("Center Piece: " + centerPieces[selector]);
         }
-        cubeStructure.Rotate(selector);
+        cubeStructure.RotateCCW(selector);
         for (int i = 0; i < 90; i++)
         {
             if (selector == 1 || selector == 3)
@@ -128,28 +253,7 @@ public class CubeLogic : MonoBehaviour {
             x1 = x3; y1 = y3; z1 = z3;
             x3 = temp1; y3 = temp2; z3 = temp3;
         }
-        for (int i = 0; i < 3; i++)
-        {
-            for (int j = 0; j < 3; j++)
-            {
-                GameObject.FindWithTag(side[i, j]).transform.parent = GameObject.FindWithTag("Main").transform;
-            }
-        }
-        for (int i = 0; i < 90; i++)
-        {
-            if (selector == 6)
-            {
-                middleCubePiece[0].Rotate(new Vector3(0, -1, 0), Space.Self);
-            }
-            if (selector == 7)
-            {
-                middleCubePiece[0].Rotate(new Vector3(-1, 0, 0), Space.Self);
-            }
-            if (selector == 8)
-            {
-                middleCubePiece[0].Rotate(new Vector3(0, 0, -1), Space.Self);
-            }
-        }
+        
         Debug.Log("Done!");
     }
     private void InitializePieces()
@@ -176,7 +280,12 @@ public class CubeLogic : MonoBehaviour {
 
     public void ShuffleCube()
     {
-        
+        int dir = Random.Range(0, 1);
+        if (dir == 0)
+        {
+            changeDirection();
+        }
+
         int index = Random.Range(0, 8);
         if(index == 0)
         {
@@ -262,5 +371,20 @@ public class CubeLogic : MonoBehaviour {
     {
         selector = 8;
         startRotation = true;
+    }
+    public void changeDirection()
+    {
+        if (CW)
+        {
+            GameObject.Find("TextCW").GetComponent<Text>().text = "CCW";
+            CW = false;
+        }
+        else if (!CW)
+        {
+            GameObject.Find("TextCW").GetComponent<Text>().text = "CW";
+            CW = true;
+        }
+
+        Debug.Log(CW);
     }
 }

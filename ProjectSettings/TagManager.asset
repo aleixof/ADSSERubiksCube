@@ -58,6 +58,7 @@ TagManager:
   - EdgeOB
   - EdgeBY
   - Main
+  - Direction
   layers:
   - Default
   - TransparentFX
