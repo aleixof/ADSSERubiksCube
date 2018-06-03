@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CubeLogic : MonoBehaviour {
+public class CubeLogic : MonoBehaviour
+{
     //Variable for storing the structure of the cube
-    CubeStructure  cubeStructure;
+    CubeStructure cubeStructure;
     private string[,] side;
     private bool CW = true;
 
@@ -21,18 +22,19 @@ public class CubeLogic : MonoBehaviour {
     int x3 = 0, y3 = 1, z3 = 0;
 
     public bool startRotation = false;
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         cubeStructure = new CubeStructure();
         InitializePieces();
-        for (int i = 0; i < 25; i++)
-        {
-            ShuffleCube();
-        }
+        ShuffleCube();
+        startRotation = true;
+
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         if (startRotation == true)
         {
             rotate();
@@ -62,7 +64,7 @@ public class CubeLogic : MonoBehaviour {
         {
             rotateSideCW();
         }
-        else if(!CW)
+        else if (!CW)
         {
             rotateSideCCW();
         }
@@ -88,7 +90,7 @@ public class CubeLogic : MonoBehaviour {
             }
             if (selector == 7)
             {
-                if(CW)
+                if (CW)
                 {
                     middleCubePiece[0].Rotate(new Vector3(1, 0, 0), Space.Self);
                 }
@@ -117,7 +119,7 @@ public class CubeLogic : MonoBehaviour {
         {
             if (selector == 1 || selector == 3)
             {
-                centerPieces[selector].Rotate(new Vector3(x1 *-1, y1 * -1, z1 * -1), Space.Self);
+                centerPieces[selector].Rotate(new Vector3(x1 * -1, y1 * -1, z1 * -1), Space.Self);
             }
             if (selector == 0 || selector == 2)
             {
@@ -181,7 +183,7 @@ public class CubeLogic : MonoBehaviour {
     }
     public void rotateSideCCW()
     {
-        
+
         Debug.Log("Center: " + side[1, 1]);
         if (selector < 6)
         {
@@ -253,7 +255,7 @@ public class CubeLogic : MonoBehaviour {
             x1 = x3; y1 = y3; z1 = z3;
             x3 = temp1; y3 = temp2; z3 = temp3;
         }
-        
+
         Debug.Log("Done!");
     }
     private void InitializePieces()
@@ -265,7 +267,7 @@ public class CubeLogic : MonoBehaviour {
 
         for (int i = 0; i < 6; i++)
         {
-            centerPieces[i] = GameObject.FindGameObjectWithTag("Center Piece " + (i + 1)).transform;          
+            centerPieces[i] = GameObject.FindGameObjectWithTag("Center Piece " + (i + 1)).transform;
         }
         for (int i = 0; i < 8; i++)
         {
@@ -287,11 +289,11 @@ public class CubeLogic : MonoBehaviour {
         }
 
         int index = Random.Range(0, 8);
-        if(index == 0)
+        if (index == 0)
         {
             RotateFront();
         }
-        else if(index == 1)
+        else if (index == 1)
         {
             RotateRight();
         }
@@ -384,7 +386,10 @@ public class CubeLogic : MonoBehaviour {
             GameObject.Find("TextCW").GetComponent<Text>().text = "CW";
             CW = true;
         }
+    }
 
-        Debug.Log(CW);
+    public void ThistlethwaiteSolve()
+    {
+        
     }
 }

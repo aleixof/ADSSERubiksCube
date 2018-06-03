@@ -55,11 +55,11 @@
      <Compile Include="Assets\Scripts\CubeLogic.cs" />
      <Compile Include="Assets\Scripts\CubeStructure.cs" />
      <Compile Include="Assets\Scripts\Structure.cs" />
- <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>E:/Documents/Unity/ADSSE Rubiks Cube/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
- </Reference>
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>E:/Documents/Unity/ADSSE Rubiks Cube/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.PackageManagerUI.Editor">
+ <HintPath>E:/Documents/Unity/ADSSE Rubiks Cube/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>E:/Programs/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

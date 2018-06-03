@@ -12,6 +12,10 @@ public class CubeStructure : MonoBehaviour {
     //Third Layer covers the whole bottom/yellow side
     private string[,] layer3 = new string[3, 3];
 
+    private string[,] solvedLayer1 = new string[3, 3];
+    private string[,] solvedLayer2 = new string[3, 3];
+    private string[,] solvedLayer3 = new string[3, 3];
+
     public void StructureCube()
     {
         layer1[0, 0] = "Corner Piece 4";
@@ -43,13 +47,97 @@ public class CubeStructure : MonoBehaviour {
         layer3[2, 0] = "Corner Piece 8";
         layer3[2, 1] = "Edge Piece 11";
         layer3[2, 2] = "Corner Piece 7";
+
+
+        solvedLayer1[0, 0] = "Corner Piece 4";
+        solvedLayer1[0, 1] = "Edge Piece 1";
+        solvedLayer1[0, 2] = "Corner Piece 1";
+        solvedLayer1[1, 0] = "Edge Piece 5";
+        solvedLayer1[1, 1] = "Center Piece 1";
+        solvedLayer1[1, 2] = "Edge Piece 6";
+        solvedLayer1[2, 0] = "Corner Piece 5";
+        solvedLayer1[2, 1] = "Edge Piece 9";
+        solvedLayer1[2, 2] = "Corner Piece 6";
+
+        solvedLayer2[0, 0] = "Edge Piece 4";
+        solvedLayer2[0, 1] = "Center Piece 6";
+        solvedLayer2[0, 2] = "Edge Piece 2";
+        solvedLayer2[1, 0] = "Center Piece 4";
+        solvedLayer2[1, 1] = "Pivot";
+        solvedLayer2[1, 2] = "Center Piece 2";
+        solvedLayer2[2, 0] = "Edge Piece 12";
+        solvedLayer2[2, 1] = "Center Piece 5";
+        solvedLayer2[2, 2] = "Edge Piece 10";
+
+        solvedLayer3[0, 0] = "Corner Piece 3";
+        solvedLayer3[0, 1] = "Edge Piece 3";
+        solvedLayer3[0, 2] = "Corner Piece 2";
+        solvedLayer3[1, 0] = "Edge Piece 8";
+        solvedLayer3[1, 1] = "Center Piece 3";
+        solvedLayer3[1, 2] = "Edge Piece 7";
+        solvedLayer3[2, 0] = "Corner Piece 8";
+        solvedLayer3[2, 1] = "Edge Piece 11";
+        solvedLayer3[2, 2] = "Corner Piece 7";
+    }
+
+    public string[,] GetSolvedGreenSide()
+    {
+        string[,] array = new string[3, 3];
+        array[0, 0] = solvedLayer1[0, 2]; array[0, 1] = solvedLayer1[0, 1]; array[0, 2] = solvedLayer1[0, 0];
+        array[1, 0] = solvedLayer1[1, 2]; array[1, 1] = solvedLayer1[1, 1]; array[1, 2] = solvedLayer1[1, 0];
+        array[2, 0] = solvedLayer1[2, 2]; array[2, 1] = solvedLayer1[2, 1]; array[2, 2] = solvedLayer1[2, 0];
+        return array;
+    }
+
+    public string[,] GetSolvedYellowSide()
+    {
+        string[,] array = new string[3, 3];
+        array[0, 0] = solvedLayer1[0, 2]; array[0, 1] = solvedLayer2[0, 2]; array[0, 2] = solvedLayer3[0, 2];
+        array[1, 0] = solvedLayer1[1, 2]; array[1, 1] = solvedLayer2[1, 2]; array[1, 2] = solvedLayer3[1, 2];
+        array[2, 0] = solvedLayer1[2, 2]; array[2, 1] = solvedLayer2[2, 2]; array[2, 2] = solvedLayer3[2, 2];
+        return array;
+    }
+
+    public string[,] GetSolvedBlueSide()
+    {
+        string[,] array = new string[3, 3];
+        array[0, 0] = solvedLayer3[0, 0]; array[0, 1] = solvedLayer2[0, 0]; array[0, 2] = solvedLayer1[0, 0];
+        array[1, 0] = solvedLayer3[1, 0]; array[1, 1] = solvedLayer2[1, 0]; array[1, 2] = solvedLayer1[1, 0];
+        array[2, 0] = solvedLayer3[2, 0]; array[2, 1] = solvedLayer2[2, 0]; array[2, 2] = solvedLayer1[2, 0];
+        return array;
+    }
+
+    public string[,] GetSolvedOrangeSide()
+    {
+        string[,] array = new string[3, 3];
+        array[0, 0] = solvedLayer3[0, 2]; array[0, 1] = solvedLayer3[0, 1]; array[0, 2] = solvedLayer3[0, 0];
+        array[1, 0] = solvedLayer3[1, 2]; array[1, 1] = solvedLayer3[1, 1]; array[1, 2] = solvedLayer3[1, 0];
+        array[2, 0] = solvedLayer3[2, 2]; array[2, 1] = solvedLayer3[2, 1]; array[2, 2] = solvedLayer3[2, 0];
+        return array;
+    }
+
+    public string[,] GetSolvedWhiteSide()
+    {
+        string[,] array = new string[3, 3];
+        array[0, 0] = solvedLayer1[2, 2]; array[0, 1] = solvedLayer2[2, 2]; array[0, 2] = solvedLayer3[2, 2];
+        array[1, 0] = solvedLayer1[2, 1]; array[1, 1] = solvedLayer2[2, 1]; array[1, 2] = solvedLayer3[2, 1];
+        array[2, 0] = solvedLayer1[2, 0]; array[2, 1] = solvedLayer2[2, 0]; array[2, 2] = solvedLayer3[2, 0];
+        return array;
+    }
+
+    public string[,] GetSolvedRedSide()
+    {
+        string[,] array = new string[3, 3];
+        array[0, 0] = solvedLayer3[0, 0]; array[0, 1] = solvedLayer3[0, 1]; array[0, 2] = solvedLayer3[0, 2];
+        array[1, 0] = solvedLayer2[0, 0]; array[1, 1] = solvedLayer2[0, 1]; array[1, 2] = solvedLayer2[0, 2];
+        array[2, 0] = solvedLayer1[0, 0]; array[2, 1] = solvedLayer1[0, 1]; array[2, 2] = solvedLayer1[0, 2];
+        return array;
     }
 
     //the getter functions fetches the string tags of the different sides
     //from a basic "solved" state.
     public string[,] GetSelectedSide(int side)
     {
-        Debug.Log("SIDE:  " + side);
         if (side == 0)
         {
             return GetGreenSide();
@@ -114,6 +202,7 @@ public class CubeStructure : MonoBehaviour {
         array[2, 0] = layer3[2, 0]; array[2, 1] = layer2[2, 0]; array[2, 2] = layer1[2, 0];
         return array;
     }
+
     public string[,] GetOrangeSide()
     {
         string[,] array = new string[3, 3];
@@ -122,6 +211,7 @@ public class CubeStructure : MonoBehaviour {
         array[2, 0] = layer3[2, 2]; array[2, 1] = layer3[2, 1]; array[2, 2] = layer3[2, 0];
         return array;
     }
+
     public string[,] GetWhiteSide()
     {
         string[,] array = new string[3, 3];
@@ -130,6 +220,7 @@ public class CubeStructure : MonoBehaviour {
         array[2, 0] = layer1[2, 0]; array[2, 1] = layer2[2, 0]; array[2, 2] = layer3[2, 0];
         return array;
     }
+
     public string[,] GetRedSide()
     {
         string[,] array = new string[3, 3];
@@ -138,6 +229,7 @@ public class CubeStructure : MonoBehaviour {
         array[2, 0] = layer1[0, 0]; array[2, 1] = layer1[0, 1]; array[2, 2] = layer1[0, 2];
         return array;
     }
+
     public string[,] GetMiddleTB()
     {
         string[,] array = new string[3, 3];
@@ -367,7 +459,7 @@ public class CubeStructure : MonoBehaviour {
             //Rotate the edges
             temp = layer3[0, 1];
             layer3[0, 1] = layer3[1, 2]; // Upper edge piece -> right edge piece
-            layer3[1, 1] = layer3[2, 1]; //right edge piece -> lower edge piece
+            layer3[1, 2] = layer3[2, 1]; //right edge piece -> lower edge piece
             layer3[2, 1] = layer3[1, 0]; //lower edge piece -> left edge piece
             layer3[1, 0] = temp;
         }
@@ -469,9 +561,9 @@ public class CubeStructure : MonoBehaviour {
         }
     }
     public CubeStructure()
-        {
-            StructureCube();
-        }
+    {
+        StructureCube();
+    }
     // Use this for initialization
     void Start () {
 	}
@@ -480,4 +572,21 @@ public class CubeStructure : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public bool IsCubeSolved()
+    {
+        bool match = true;
+        for(int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                Debug.Log(layer1[i, j] + " = " + solvedLayer1[i, j]);
+                if ((layer1[i, j] != solvedLayer1[i, j])  || (layer2[i,j] != solvedLayer2[i,j]) || (layer3[i,j] != solvedLayer3[i,j]))
+                {
+                    match = false;
+                }
+            }
+        }
+        return match;
+    }
 }
